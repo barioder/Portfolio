@@ -4,17 +4,26 @@
 
       <h1>Blog Index</h1>
       {% for post in posts %}
-         <h2> <a href="{% url 'blogs:blog_detail' post.id %}"> {{ post.title }} </a> </h2>
-         <small>
-            {{post.created_on.date}}
-            Categories:
-            {% for category in post.categories.all %}
-            <a href="{% url 'blogs:blog_category' category.name %}">
-                {{category.name}}
-            </a>&nbsp;
-            {% endfor %}
-        </small>
-        <p> {{post.body | slice:":400"}}.... </p>
+         <div class="card mb-3" >
+            <div class="card-header">
+            <h4 class="mb-0 mt-0"> <a href="{% url 'blogs:blog_detail' post.id %}"> {{ post.title }} </a> </h4>
+            <small>
+               {{post.created_on.date}}
+               Categories:
+               {% for category in post.categories.all %}
+               <a href="{% url 'blogs:blog_category' category.name %}">
+                  {{category.name}}
+               </a>&nbsp;
+                {% endfor %}
+            </small>
+            </div>
+            <div class="card-body">
+            <p> {{post.body | slice:":400"}}.... </p>
+            </div>
+
+         </div>
+
+
       {% endfor %}
 
    </div>

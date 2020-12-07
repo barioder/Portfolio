@@ -4,16 +4,28 @@
 {% block content %}
     <h1>{{ project.title }}</h1>
     <div class="row" >
-        <div class="col-md-8 embed-responsive embed-responsive-16by9 " >
+        <div class="col-md-8 embed-responsive embed-responsive-16by9 img-thumbnail " >
             <img class="embed-responsive-item "  src="{% static project.image  %}" alt="img">
         </div>
         <div class="col-md-4">
-            <h5> About The Project: </h5>
-            <p> {{ project.description }} </p>
-            <h5> Technology Used: </h5>
-            {{ project.technology }}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"> About The Project: </h5>
+                    <p class="card-text"> {{ project.description }} </p>
+                </div>
+            </div>
+
+
+            <div class="card view overlay">
+                <div class="card-body">
+                    <h5 class="card-title"> Technology Used: </h5>
+                    <p class="card-text">{{ project.technology }}</p>
+                </div>
+
+            </div>
 
         </div>
+
     </div>
 
 
